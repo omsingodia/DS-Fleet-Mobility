@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 :root {
     --blue: #09305e;
     --gold: #a1761b;
@@ -2759,7 +2758,7 @@ footer {
 
 /* Main heading */
 .hero h1 {
-            font-size: clamp(2.5rem, 10vw, 4rem);
+            font-size: clamp(2rem, 8vw, 3.5rem);
     color: #09305e !important;
     padding-bottom: 0 !important;
     margin-bottom: 18px;
@@ -2767,7 +2766,7 @@ footer {
 
 /* "Way" stays on the next line in blue */
 .hero h1 span {
-            font-size: clamp(2.5rem, 10vw, 4rem);
+            font-size: clamp(2rem, 8vw, 3.5rem);
 
     display: block;
     color: #09305e !important;
@@ -2775,7 +2774,7 @@ footer {
 
 /* "to Move." stays gold on the line below */
 .hero h1 em {
-            font-size: clamp(2.5rem, 10vw, 4rem);
+            font-size: clamp(2rem, 8vw, 3.5rem);
 
     display: block;
     color: #a1761b !important;
@@ -2806,7 +2805,7 @@ footer {
 /* Mobile heading spacing */
 @media (max-width: 760px) {
     .hero h1 {
-        font-size: clamp(2.5rem, 10vw, 4rem);
+        font-size: clamp(2rem, 8vw, 3.5rem);
         line-height: 1.08;
     }
 }
@@ -2818,4 +2817,490 @@ footer {
 }
 
 
+/* ABOUT PAGE HEADING SIZE */
+
+.about-hero h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+    line-height: 1.08;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: clamp(2rem, 8vw, 3.5rem) !important;
+        line-height: 1.08;
+    }
+}
+
+
+/* =========================================
+   ABOUT PAGE — OUR PURPOSE
+   Same layout as homepage OUR DIRECTION
+========================================= */
+
+#our-purpose {
+    background: #ffffff;
+    padding: 100px 0;
+}
+
+#our-purpose > .mobility-layout {
+    width: min(1180px, calc(100% - 44px));
+    margin: 0 auto;
+    padding: 0 0 0 60px;
+    box-sizing: border-box;
+}
+
+#our-purpose .mobility-heading {
+    max-width: 850px;
+    margin-bottom: 46px;
+}
+
+#our-purpose .mobility-heading .kicker {
+    color: #a1761b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    margin-bottom: 20px;
+}
+
+#our-purpose .mobility-heading .kicker::before {
+    display: none;
+    content: none;
+}
+
+#our-purpose .mobility-heading h2 {
+    color: #12263b;
+    font-size: clamp(2rem, 3.4vw, 3.2rem);
+    line-height: 1.12;
+    margin-bottom: 22px;
+}
+
+#our-purpose .mobility-heading > p {
+    max-width: 780px;
+    color: #24282c;
+    font-size: 1.02rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+#our-purpose .mobility-features {
+    display: grid;
+    gap: 28px;
+}
+
+#our-purpose .mobility-feature {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: center;
+    gap: 32px;
+    padding: 0 0 28px;
+    border-bottom: 1px solid #dce3ea;
+    min-width: 0;
+}
+
+#our-purpose .mobility-feature:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+#our-purpose .mobility-feature-image {
+    width: 100%;
+    height: 175px;
+    overflow: hidden;
+    background: #f1f3f5;
+    border: 0;
+    border-radius: 0;
+}
+
+#our-purpose .mobility-feature-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+    border-radius: 0;
+    transition: transform 0.35s ease;
+}
+
+#our-purpose .mobility-feature:hover .mobility-feature-image img {
+    transform: scale(1.03);
+}
+
+#our-purpose .mobility-feature-copy {
+    min-width: 0;
+}
+
+#our-purpose .mobility-number {
+    display: block;
+    color: #a1761b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+}
+
+#our-purpose .mobility-feature-copy h3 {
+    color: #09305e;
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+}
+
+#our-purpose .mobility-feature-copy p {
+    color: #24282c;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    max-width: 720px;
+    margin: 0;
+}
+
+
+/* =========================================
+   ABOUT PAGE — BRAND PRINCIPLES
+   Same card style as homepage HOW WE WORK
+========================================= */
+
+#brand-principles {
+    position: relative;
+    z-index: 2;
+    background: #ffffff !important;
+    isolation: isolate;
+}
+
+#brand-principles > .wrap {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#brand-principles .section-head {
+    position: relative;
+    left: 230px;
+    z-index: 3;
+    width: auto;
+    max-width: 850px;
+    margin: 0 0 42px;
+    padding: 0;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+#brand-principles .section-head .kicker {
+    color: #a1761b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#brand-principles .section-head .kicker::before {
+    display: none;
+    content: none;
+}
+
+#brand-principles .section-head h2 {
+    color: #000000 !important;
+    font-size: clamp(1.65rem, 2.3vw, 2.4rem) !important;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+#brand-principles .section-head p {
+    color: #000000 !important;
+    font-size: 1.03rem;
+    line-height: 1.7;
+    max-width: 850px;
+    overflow-wrap: break-word;
+}
+
+#brand-principles .principles-steps {
+    position: relative;
+    z-index: 2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+#brand-principles .step {
+    min-width: 0;
+    padding: 30px;
+    border: 1px solid #dce3ea;
+    border-radius: 0;
+    background: #ffffff;
+}
+
+#brand-principles .stepnum {
+    width: auto;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    background: transparent;
+    color: #a1761b;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 22px;
+}
+
+#brand-principles .step h3 {
+    color: #09305e;
+    margin-bottom: 12px;
+}
+
+#brand-principles .step p {
+    color: #24282c;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 980px) {
+
+    #our-purpose > .mobility-layout {
+        padding-left: 30px;
+    }
+
+    #our-purpose .mobility-feature {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    #our-purpose .mobility-feature-image {
+        height: 160px;
+    }
+
+    #brand-principles .section-head {
+        left: 100px;
+    }
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 760px) {
+
+    #our-purpose {
+        padding: 65px 0;
+    }
+
+    #our-purpose > .mobility-layout {
+        width: calc(100% - 32px);
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #our-purpose .mobility-heading {
+        margin-bottom: 32px;
+    }
+
+    #our-purpose .mobility-heading h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+
+    #our-purpose .mobility-heading > p {
+        font-size: 0.94rem;
+    }
+
+    #our-purpose .mobility-features {
+        gap: 24px;
+    }
+
+    #our-purpose .mobility-feature {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        padding-bottom: 24px;
+    }
+
+    #our-purpose .mobility-feature-image {
+        height: 220px;
+    }
+
+    #our-purpose .mobility-feature-copy h3 {
+        font-size: 1.2rem;
+    }
+
+    #our-purpose .mobility-feature-copy p {
+        font-size: 0.9rem;
+    }
+
+    #brand-principles > .wrap {
+        width: calc(100% - 32px) !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #brand-principles .section-head {
+        position: relative;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 30px;
+    }
+
+    #brand-principles .section-head h2,
+    #brand-principles .section-head p {
+        width: 100%;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+
+    #brand-principles .section-head h2 {
+        font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
+        line-height: 1.15;
+    }
+
+    #brand-principles .section-head p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    #brand-principles .principles-steps {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #brand-principles .step {
+        padding: 24px;
+    }
+}
+
+
+/* Brand Principles - Button Hover Effect */
+
+.principles-steps .step {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+                border-color 0.3s ease, background 0.3s ease;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+}
+
+.principles-steps .step:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(9, 48, 94, 0.12);
+    border-color: #a1761b;
+    background: #ffffff;
+}
+
+.principles-steps .step h3 {
+    transition: color 0.3s ease;
+}
+
+.principles-steps .step:hover h3 {
+    color: #a1761b;
+}
+
+.principles-steps .stepnum {
+    transition: transform 0.3s ease;
+}
+
+.principles-steps .step:hover .stepnum {
+    transform: translateY(-3px);
+}
+
+
+
+/* Home Page - How We Work Hover Effect */
+
+.steps:not(.principles-steps) .step {
+    cursor: pointer;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.steps:not(.principles-steps) .step:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(9, 48, 94, 0.12);
+    border-color: #09305e;
+}
+
+.steps:not(.principles-steps) .step h3 {
+    transition: color 0.3s ease;
+}
+
+.steps:not(.principles-steps) .step:hover h3 {
+    color: #a1761b;
+}
+
+.steps:not(.principles-steps) .stepnum {
+    transition: transform 0.3s ease;
+}
+
+.steps:not(.principles-steps) .step:hover .stepnum {
+    transform: translateY(-3px);
+}
+/* Default state - DS Brand Blue */
+.steps:not(.principles-steps) .step h3 {
+    color: #09305e;
+}
+
+/* Hover state - Gold */
+.steps:not(.principles-steps) .step:hover h3 {
+    color: #a1761b;
+}
+
+.mobility-heading h2 {
+      font-size: clamp(1.65rem, 2.3vw, 2.4rem) !important;
+    line-height: 1.1;
+}
+
+
+/* CONTACT PAGE HEADING FIX */
+
+/* Remove gold line before Get in Touch */
+.contact-copy > .kicker::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* Match About page heading size */
+.contact-copy > h2 {
+    font-size: clamp(1.65rem, 2.3vw, 2.4rem) !important;
+    line-height: 1.1;
+}
+/* Contact Page Description */
+.contact-copy > p {
+    color: #24282c !important;
+}
+
+
+
+/* -------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
+
+/* =====================================
+   DS FLEET MOBILITY — BRAND LOGO
+   Font: Montserrat ExtraBold
+   Weight: 800
+===================================== */
+
+.header .brand,
+.header .brand-text,
+.header .brand-name,
+.header .brand-name > span {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+
+/* -------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
 
