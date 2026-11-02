@@ -1339,6 +1339,14 @@ button, input, select, textarea {
     content: none !important;
 }
 
+/* OUR SERVICES — REMOVE GOLD LINE ON MOBILE TOO
+   (the rule above never matched: the heading is NOT inside #services,
+    it sits just above it in the same section) */
+main > section.section:has(> #services) > .section-head .kicker::before {
+    display: none !important;
+    content: none !important;
+}
+
 
 
 /* OUR SERVICES — ONLY CARD HEADINGS BLUE */
@@ -4136,7 +4144,7 @@ form.form {
     #approach .section-head,
     #brand-principles .section-head,
     section.soft > .wrap.section-head {
-        --hd-offset: clamp(0px, calc((100vw - 761px) * .5), 230px);
+        --hd-offset: max(22px, clamp(0px, calc((100vw - 761px) * .5), 230px));
         left: var(--hd-offset);
         max-width: min(850px, calc(100% - var(--hd-offset) - 22px));
     }
@@ -4363,4 +4371,199 @@ form.form {
 
 .footerbrand:hover img {
     transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   FIX 9 · TABLETS (761–980px) — spacing between sections
+   Section padding stacked up to a ~200px blank gap on tablets
+   (for example between "Enquire Now" and "How We Work").
+   Same compact spacing as phones.
+   ===================================================================== */
+
+@media (min-width: 761px) and (max-width: 980px) {
+    .section,
+    #mobility-direction,
+    #our-purpose {
+        padding: 70px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   FIX 10 · ONE HEADING SIZE FOR THE WHOLE SITE
+   Every section heading (h2) on every page now uses the same size,
+   weight, line-height and black colour as Home "Our Services":
+     • laptop / tablet : clamp(1.65rem, 2.3vw, 2.4rem)
+     • phones          : 2rem
+   Pages covered:
+     Home      — Our Services, Our Direction, How We Work, FAQ
+     Services  — split heading, "How to get started / What to include /
+                 Before you enquire", bottom CTA heading
+                 (School Transport, Office Commute, Rajasthan Travel)
+     About     — Our Purpose, Brand Principles
+     Contact   — Get in touch heading
+   (The big blue/gold page titles in the hero are not changed.)
+   To change the heading size everywhere, change --h2-size only.
+   ===================================================================== */
+
+:root {
+    --h2-size: clamp(1.65rem, 2.3vw, 2.4rem);
+}
+
+@media (max-width: 760px) {
+    :root {
+        --h2-size: 2rem;
+    }
+}
+
+#approach .section-head h2,
+#brand-principles .section-head h2,
+section.soft > .wrap.section-head h2,
+main > section.section:has(> #services) > .section-head h2,
+#mobility-direction .mobility-heading h2,
+#mobility-direction .mobility-content h2,
+#our-purpose .mobility-heading h2,
+.mobility-heading h2,
+.split > div > h2,
+.faq-section h2,
+.faq-section .section-head h2,
+.contact-copy > h2,
+body .contact-copy h2 {
+    font-size: var(--h2-size) !important;
+    line-height: 1.1 !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+}
+
+/* Bottom CTA heading on the service pages (keeps its own colour) */
+.band .band-inner h2 {
+    font-size: var(--h2-size) !important;
+    line-height: 1.1 !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   FIX 11 · HEADER STAYS FIXED AT THE TOP ON ALL DEVICES
+   On phones and tablets the white header scrolled away with the page.
+   Cause: "overflow-x: hidden" on BOTH <html> and <body> turns <body>
+   into its own scroll box, and a sticky header cannot stick inside it.
+   Fix: only <html> keeps overflow-x hidden; <body> uses "clip", which
+   still blocks sideways scrolling but does not break the sticky header.
+   ===================================================================== */
+
+@media (max-width: 980px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-x: clip;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   FIX 12 · FOOTER on tablets and small laptops (761–1223px)
+   Problem 1 (tablet): the "Explore DS" and "Direct Contact" columns kept
+   their 220px / 280px right shifts, because the rule that cancels the
+   shifts on tablets was weaker than the per-column shift rules. They were
+   pushed off the screen.
+   Problem 2 (small laptop): the columns packed to the left with uneven gaps.
+   Fix: from 761px to 1223px the 3 footer columns sit in one row, spread
+   evenly from the left edge to the right edge, with no shifts.
+   (1224px and above keep the original desktop footer; phones are unchanged.)
+   ===================================================================== */
+
+@media (min-width: 761px) and (max-width: 1223px) {
+    footer .footergrid {
+        grid-template-columns: repeat(3, max-content);
+        justify-content: space-between;
+        column-gap: 24px;
+        row-gap: 32px;
+    }
+
+    footer .footergrid > .footcol,
+    footer .footergrid > .footcol:nth-child(2),
+    footer .footergrid > .footcol:nth-child(3) {
+        transform: none;
+        padding-top: 0;
+    }
+
+    footer .footergrid > .footer-social-column {
+        grid-column: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   FIX 13 · WHITE HEADER STRIP ALWAYS STAYS AT THE TOP (phones & tablets)
+   "position: sticky" was not holding on phones/tablets, so the strip
+   scrolled away. On screens up to 980px the header is now truly fixed to
+   the top of the screen, and the page gets the same amount of space at
+   the top so nothing hides behind it.
+   Laptops (981px and up) keep the sticky header that already works.
+   ===================================================================== */
+
+@media (max-width: 980px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 100;
+    }
+
+    /* header height: 66px nav + 1px border */
+    body {
+        padding-top: 67px;
+    }
+}
+
+@media (max-width: 760px) {
+    /* header height on phones: 62px nav + 1px border */
+    body {
+        padding-top: 63px;
+    }
 }
