@@ -4567,3 +4567,29 @@ body .contact-copy h2 {
         padding-top: 63px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   FIX 14 · HERO — white "Designed Around Your Route" box sits lower
+   The box covered the cars in the photo. It now hangs lower, mostly
+   below the photo, so the vehicles stay visible.
+   (Same box is used on every page's hero.)
+   ===================================================================== */
+
+.hero .floating {
+    bottom: -34px;
+}
+
+@media (max-width: 980px) {
+    .hero .floating {
+        bottom: -20px;
+    }
+}
