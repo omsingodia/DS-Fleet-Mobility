@@ -4676,3 +4676,450 @@ body .contact-copy h2 {
         line-height: 1.4;
     }
 }
+/* -----------------------diwali--------------------------------------------------------------------- */
+
+/* =====================================================================
+   DS FLEET MOBILITY — DIWALI THEME (diwali.css)
+
+   Three parts:
+     1. Festive banner        (.festive-banner)
+     2. Hanging light string  (hangs from the white header strip)
+     3. Welcome pop-up        (.diwali-welcome)
+
+   HOW TO USE
+   • In styles.css DELETE your old "diwali" CSS block completely, then
+     paste this whole file at the very end of styles.css
+     (or keep it as diwali.css and add one more <link> after styles.css).
+   • Lights ON  : <div class="diwali-string" aria-hidden="true">…</div>  (no "hidden")
+     Lights OFF : <div class="diwali-string" hidden aria-hidden="true">…</div>
+     The lights now live on the white header itself, so they stay fixed
+     with it when you scroll, on every device.
+   • Banner OFF : delete the <section class="festive-banner"> block.
+   • Pop-up OFF : add the word "hidden" to <div class="diwali-welcome">.
+   ===================================================================== */
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   1. FESTIVE BANNER
+   ===================================================================== */
+
+.festive-banner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px clamp(20px, 5vw, 64px);
+    margin: 0 auto 24px;
+    color: #fff;
+    background: linear-gradient(110deg, #09305e, #174b78 65%, #a1761b);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(9, 48, 94, .25);
+}
+
+/* soft light that slowly sweeps across the banner */
+.festive-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg,
+        transparent 30%,
+        rgba(255, 231, 163, .16) 50%,
+        transparent 70%);
+    background-size: 250% 100%;
+    animation: festive-shimmer 7s linear infinite;
+    pointer-events: none;
+}
+
+.festive-content {
+    position: relative;
+    z-index: 1;
+}
+
+.festive-tag {
+    display: block;
+    margin-bottom: 8px;
+    color: #f5d58a;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+}
+
+.festive-banner h2 {
+    margin: 0 0 8px;
+    font-size: clamp(20px, 3vw, 30px);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, .25);
+}
+
+.festive-banner p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.festive-lights {
+    position: absolute;
+    top: 8px;
+    right: 18px;
+    color: #ffe7a3;
+    letter-spacing: 12px;
+    opacity: 0.8;
+    animation: festive-twinkle 2s ease-in-out infinite alternate;
+}
+
+.festive-diyas {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    font-size: clamp(28px, 4vw, 44px);
+    animation: festive-flicker 1.6s ease-in-out infinite;
+}
+
+@media (max-width: 600px) {
+    .festive-banner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@keyframes festive-shimmer {
+    from { background-position: 150% 0; }
+    to   { background-position: -100% 0; }
+}
+
+@keyframes festive-twinkle {
+    from { opacity: .35; }
+    to   { opacity: 1; }
+}
+
+@keyframes festive-flicker {
+    0%, 100% { transform: scale(1);    filter: brightness(1); }
+    50%      { transform: scale(1.06); filter: brightness(1.25); }
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   2. HANGING LIGHT STRING — attached to the white header strip
+
+   The old .diwali-string was position:fixed at a guessed height, so it
+   did not follow the header (banner above it, scrolling, phones).
+   The lights are now drawn on the header itself (::before / ::after),
+   so they always hang exactly under the white strip and move with it:
+     laptop  → header is sticky,   lights stay with it
+     phone / tablet → header is fixed, lights stay with it
+   Two layers with different bulb colours fade in and out, so the
+   bulbs twinkle and change colour like real fairy lights.
+   Turned on only when <div class="diwali-string"> has no "hidden".
+   ===================================================================== */
+
+/* the old element is now only an on/off switch — never shown itself */
+.diwali-string {
+    display: none !important;
+}
+
+html:has(.diwali-string:not([hidden])) .header::before,
+html:has(.diwali-string:not([hidden])) .header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 44px;
+    z-index: -1;
+    pointer-events: none;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-size: 160px 44px;
+}
+
+/* layer A */
+html:has(.diwali-string:not([hidden])) .header::before {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 44' width='160' height='44'><path d='M0 1Q40 23 80 1Q120 23 160 1' fill='none' stroke='%233a3f47' stroke-width='1.6'/><circle cx='20' cy='21.25' r='12' fill='%23ffc93c' opacity='.22'/><rect x='18.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='20' cy='21.25' rx='4.6' ry='7.2' fill='%23ffc93c'/><circle cx='40' cy='24' r='12' fill='%23ff5a5a' opacity='.22'/><rect x='38.4' y='12' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='40' cy='24' rx='4.6' ry='7.2' fill='%23ff5a5a'/><circle cx='60' cy='21.25' r='12' fill='%235be37d' opacity='.22'/><rect x='58.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='60' cy='21.25' rx='4.6' ry='7.2' fill='%235be37d'/><circle cx='100' cy='21.25' r='12' fill='%23ff9f40' opacity='.22'/><rect x='98.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='100' cy='21.25' rx='4.6' ry='7.2' fill='%23ff9f40'/><circle cx='120' cy='24' r='12' fill='%23ff6fb5' opacity='.22'/><rect x='118.4' y='12' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='120' cy='24' rx='4.6' ry='7.2' fill='%23ff6fb5'/><circle cx='140' cy='21.25' r='12' fill='%234aa8ff' opacity='.22'/><rect x='138.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='140' cy='21.25' rx='4.6' ry='7.2' fill='%234aa8ff'/></svg>");
+    animation: diwali-bulbs-a 1.8s ease-in-out infinite;
+}
+
+/* layer B — same string, bulb colours shifted by one */
+html:has(.diwali-string:not([hidden])) .header::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 44' width='160' height='44'><path d='M0 1Q40 23 80 1Q120 23 160 1' fill='none' stroke='%233a3f47' stroke-width='1.6'/><circle cx='20' cy='21.25' r='12' fill='%23ff5a5a' opacity='.22'/><rect x='18.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='20' cy='21.25' rx='4.6' ry='7.2' fill='%23ff5a5a'/><circle cx='40' cy='24' r='12' fill='%235be37d' opacity='.22'/><rect x='38.4' y='12' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='40' cy='24' rx='4.6' ry='7.2' fill='%235be37d'/><circle cx='60' cy='21.25' r='12' fill='%23ff9f40' opacity='.22'/><rect x='58.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='60' cy='21.25' rx='4.6' ry='7.2' fill='%23ff9f40'/><circle cx='100' cy='21.25' r='12' fill='%23ff6fb5' opacity='.22'/><rect x='98.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='100' cy='21.25' rx='4.6' ry='7.2' fill='%23ff6fb5'/><circle cx='120' cy='24' r='12' fill='%234aa8ff' opacity='.22'/><rect x='118.4' y='12' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='120' cy='24' rx='4.6' ry='7.2' fill='%234aa8ff'/><circle cx='140' cy='21.25' r='12' fill='%23ffc93c' opacity='.22'/><rect x='138.4' y='9.25' width='3.2' height='5' fill='%233a3f47'/><ellipse cx='140' cy='21.25' rx='4.6' ry='7.2' fill='%23ffc93c'/></svg>");
+    animation: diwali-bulbs-b 1.8s ease-in-out infinite;
+}
+
+@keyframes diwali-bulbs-a {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: .15; }
+}
+
+@keyframes diwali-bulbs-b {
+    0%, 100% { opacity: .15; }
+    50%      { opacity: 1; }
+}
+
+/* Phones: slightly smaller string */
+@media (max-width: 760px) {
+    html:has(.diwali-string:not([hidden])) .header::before,
+    html:has(.diwali-string:not([hidden])) .header::after {
+        height: 33px;
+        background-size: 120px 33px;
+    }
+}
+
+/* Respect "reduce motion": lights stay on, no blinking */
+@media (prefers-reduced-motion: reduce) {
+    html:has(.diwali-string:not([hidden])) .header::before,
+    html:has(.diwali-string:not([hidden])) .header::after {
+        animation: none;
+    }
+
+    html:has(.diwali-string:not([hidden])) .header::after {
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================================
+   3. DIWALI WELCOME POP-UP
+   Deep brand-blue night sky, twinkling stars, glowing golden light,
+   swinging bulbs, flickering diyas and a shining "Happy Diwali".
+   Shows for about 3 seconds (the script in the page removes it) and
+   never blocks clicks.
+   ===================================================================== */
+
+.diwali-welcome {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #ffffff;
+    background: radial-gradient(circle at 50% 45%,
+        #174b78 0%, #0b3566 45%, #061f3f 100%);
+    animation: welcome-fade 2.8s ease forwards;
+    pointer-events: none;
+}
+
+.diwali-welcome[hidden] {
+    display: none;
+}
+
+/* twinkling stars */
+.diwali-welcome::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 8% 24%,  #ffe7a3, transparent),
+        radial-gradient(2px 2px at 18% 70%, #ffffff, transparent),
+        radial-gradient(3px 3px at 27% 38%, #ffe7a3, transparent),
+        radial-gradient(2px 2px at 36% 84%, #ffffff, transparent),
+        radial-gradient(2px 2px at 46% 18%, #ffe7a3, transparent),
+        radial-gradient(3px 3px at 58% 76%, #ffe7a3, transparent),
+        radial-gradient(2px 2px at 67% 30%, #ffffff, transparent),
+        radial-gradient(2px 2px at 76% 62%, #ffe7a3, transparent),
+        radial-gradient(3px 3px at 86% 20%, #ffffff, transparent),
+        radial-gradient(2px 2px at 93% 80%, #ffe7a3, transparent);
+    background-repeat: no-repeat;
+    animation: welcome-stars 1.2s ease-in-out infinite alternate;
+}
+
+/* warm golden glow behind the message */
+.diwali-welcome::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(92vw, 620px);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle,
+        rgba(255, 201, 60, .38) 0%,
+        rgba(255, 201, 60, .12) 40%,
+        transparent 68%);
+    animation: welcome-glow 1.8s ease-in-out infinite;
+}
+
+/* ----- message ----- */
+
+.welcome-message {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 24px;
+}
+
+/* two diyas and a spark */
+.welcome-message::before {
+    content: "🪔  ✨  🪔";
+    display: block;
+    margin-bottom: 8px;
+    font-size: clamp(34px, 6vw, 52px);
+    animation:
+        welcome-rise .7s ease both,
+        festive-flicker 1.4s ease-in-out .7s infinite;
+}
+
+/* ripple of light spreading from the centre */
+.welcome-message::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    width: 220px;
+    height: 220px;
+    margin: -110px 0 0 -110px;
+    border: 2px solid rgba(255, 201, 60, .55);
+    border-radius: 50%;
+    animation: welcome-ripple 2s ease-out infinite;
+}
+
+.welcome-message p {
+    margin: 0;
+    color: #f5d58a;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: welcome-rise .7s .15s ease forwards;
+}
+
+.welcome-message h1 {
+    margin: 12px 0 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(40px, 8vw, 76px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    background: linear-gradient(90deg,
+        #ffe7a3, #ffc93c, #fff3c4, #ffc93c, #ffe7a3);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    opacity: 0;
+    animation:
+        welcome-rise .8s .3s ease forwards,
+        welcome-shine 2.4s linear infinite;
+}
+
+.welcome-message span {
+    display: block;
+    color: #dbe7f5;
+    font-size: clamp(14px, 2.2vw, 19px);
+    opacity: 0;
+    animation: welcome-rise .8s .55s ease forwards;
+}
+
+/* ----- hanging bulbs along the top edge ----- */
+
+.welcome-lights {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-top: 4px solid #8a6a22;
+    z-index: 1;
+}
+
+.welcome-lights span {
+    position: relative;
+    margin-top: 14px;
+    font-size: 22px;
+    transform-origin: 50% -14px;
+    filter: drop-shadow(0 0 7px rgba(255, 214, 102, .9));
+    animation: welcome-swing 1.8s ease-in-out infinite alternate;
+}
+
+.welcome-lights span:nth-child(even) {
+    animation-delay: -0.9s;
+}
+
+.welcome-lights span::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    height: 14px;
+    border-left: 2px solid #8a6a22;
+}
+
+/* ----- animations ----- */
+
+@keyframes welcome-fade {
+    0%, 75% { opacity: 1; }
+    100%    { opacity: 0; visibility: hidden; transform: scale(1.04); }
+}
+
+@keyframes welcome-rise {
+    from { opacity: 0; transform: translateY(18px) scale(.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes welcome-shine {
+    from { background-position: 0% 50%; }
+    to   { background-position: 200% 50%; }
+}
+
+@keyframes welcome-glow {
+    0%, 100% { opacity: .75; transform: translate(-50%, -50%) scale(.94); }
+    50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.06); }
+}
+
+@keyframes welcome-ripple {
+    from { opacity: .8; transform: scale(.4); }
+    to   { opacity: 0;  transform: scale(3.2); }
+}
+
+@keyframes welcome-stars {
+    from { opacity: .35; }
+    to   { opacity: 1; }
+}
+
+@keyframes welcome-swing {
+    from { transform: rotate(-9deg); }
+    to   { transform: rotate(9deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .diwali-welcome::before,
+    .diwali-welcome::after,
+    .welcome-message::after,
+    .welcome-lights span,
+    .festive-banner::before,
+    .festive-lights,
+    .festive-diyas {
+        animation: none;
+    }
+}
+.festive-banner {
+    border-radius: 0;
+}

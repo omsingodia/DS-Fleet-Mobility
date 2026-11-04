@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <head>
     <meta name="google-site-verification" content="FVUcZoFT1lSACMRG1ZLRpyz61qfsNwVF6weINPFRHY0" />
     <meta charset="utf-8">
@@ -20,7 +21,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
+
+
 <body>
+
+    <!-- DIWALI WELCOME POP-UP (hide karne ke liye: <div class="diwali-welcome" hidden>) -->
+    <div class="diwali-welcome">
+        <div class="welcome-lights" aria-hidden="true">
+            <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
+            <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
+        </div>
+        <div class="welcome-message">
+            <p>DS FLEET MOBILITY</p>
+            <h1>Happy Diwali</h1>
+            <span>Wishing you light, happiness &amp; safe journeys.</span>
+        </div>
+    </div>
+
+    <!-- LIGHTS SWITCH: ON = "hidden" nahi hai | OFF = hidden likh do -->
+    <div class="diwali-string" aria-hidden="true"></div>
+
+    <!-- FESTIVE BANNER (hata ne ke liye poora section delete kar do) -->
+    <section class="festive-banner">
+        <div class="festive-lights" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
+        <div class="festive-content">
+            <span class="festive-tag">DS FLEET MOBILITY</span>
+            <h2>Wishing You a Bright &amp; Safe Diwali</h2>
+            <p>May your celebrations be filled with light, joy and safe journeys.</p>
+        </div>
+        <div class="festive-diyas" aria-hidden="true">🪔 ✨ 🪔</div>
+    </section>
 
     <!-- TOP BLUE STRIP REMOVED -->
 
@@ -791,4 +821,29 @@ Our Direction        </div>
     <script src="script.js"></script>
 
 </body>
+
+
+<script>
+  window.addEventListener("load", () => {
+    const welcome = document.querySelector(".diwali-welcome");
+    if (!welcome) return;
+
+    setTimeout(() => {
+      welcome.remove();
+    }, 3000);
+  });
+</script>
+<!-- DIWALI WELCOME: remove hidden to enable -->
+<div class="diwali-welcome" >
+  <div class="welcome-lights" aria-hidden="true">
+    <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
+    <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
+  </div>
+
+  <div class="welcome-message">
+    <p>DS FLEET MOBILITY</p>
+    <h1>Happy Diwali</h1>
+    <span>Wishing you light, happiness & safe journeys.</span>
+  </div>
+</div>
 </html>
