@@ -26,10 +26,10 @@
 
 <body>
 
-    <div id="diwali-block">
+    <!-- <div id="diwali-block"> -->
 
     <!-- DIWALI WELCOME POP-UP (hide karne ke liye: <div class="diwali-welcome" hidden>) -->
-    <div class="diwali-welcome">
+    <!-- <div class="diwali-welcome">
         <div class="welcome-lights" aria-hidden="true">
             <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
             <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
@@ -39,13 +39,13 @@
             <h1>Happy Diwali</h1>
             <span>Wishing you light, happiness &amp; safe journeys.</span>
         </div>
-    </div>
+    </div> -->
 
     <!-- LIGHTS SWITCH: ON = "hidden" nahi hai | OFF = hidden likh do -->
-    <div class="diwali-string" hidden></div>
+    <!-- <div class="diwali-string" hidden></div> -->
 
     <!-- FESTIVE BANNER (hata ne ke liye poora section delete kar do) -->
-    <section class="festive-banner">
+    <!-- <section class="festive-banner">
         <div class="festive-lights" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
         <div class="festive-content">
             <span class="festive-tag">DS FLEET MOBILITY</span>
@@ -57,7 +57,11 @@
 
 
 
-    </div>
+    </div> -->
+
+
+
+
     <!-- TOP BLUE STRIP REMOVED -->
 
     <!-- HEADER -->
@@ -826,8 +830,8 @@ Our Direction        </div>
        <script src="script.js"></script>
 
     <!--=============================================- DIWALI MASTER SWITCH --------====================------------------->
-    <script>
-        const DIWALI_ON = false; // true = show | false = hide
+    <!-- <script>
+        const DIWALI_ON = false ; // true = show | false = hide
 
         const block = document.getElementById("diwali-block");
 
@@ -840,11 +844,11 @@ Our Direction        </div>
                 const welcome = block?.querySelector(".diwali-welcome");
 
                 if (welcome) {
-                    setTimeout(() => welcome.remove(), 3500);
+                    setTimeout(() => welcome.remove(), 3000);
                 }
             });
         }
-    </script>
+    </script> -->
 
 </body>
 </html>

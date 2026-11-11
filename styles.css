@@ -4907,7 +4907,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
    Shows for about 3 seconds (the script in the page removes it) and
    never blocks clicks.
    ===================================================================== */
-
+/* 
 .diwali-welcome {
     position: fixed;
     inset: 0;
@@ -4926,7 +4926,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
     display: none;
 }
 
-/* twinkling stars */
+/* twinkling stars 
 .diwali-welcome::before {
     content: "";
     position: absolute;
@@ -4946,7 +4946,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
     animation: welcome-stars 1.2s ease-in-out infinite alternate;
 }
 
-/* warm golden glow behind the message */
+/* warm golden glow behind the message 
 .diwali-welcome::after {
     content: "";
     position: absolute;
@@ -4962,7 +4962,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
     animation: welcome-glow 1.8s ease-in-out infinite;
 }
 
-/* ----- message ----- */
+/* ----- message ----- 
 
 .welcome-message {
     position: relative;
@@ -4971,7 +4971,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
     padding: 24px;
 }
 
-/* two diyas and a spark */
+/* two diyas and a spark 
 .welcome-message::before {
     content: "🪔  ✨  🪔";
     display: block;
@@ -4982,7 +4982,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
         festive-flicker 1.4s ease-in-out .7s infinite;
 }
 
-/* ripple of light spreading from the centre */
+/* ripple of light spreading from the centre 
 .welcome-message::after {
     content: "";
     position: absolute;
@@ -5035,7 +5035,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
     animation: welcome-rise .8s .55s ease forwards;
 }
 
-/* ----- hanging bulbs along the top edge ----- */
+/* ----- hanging bulbs along the top edge ----- 
 
 .welcome-lights {
     position: absolute;
@@ -5072,7 +5072,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
     border-left: 2px solid #8a6a22;
 }
 
-/* ----- animations ----- */
+/* ----- animations ----- 
 
 @keyframes welcome-fade {
     0%, 75% { opacity: 1; }
@@ -5127,7 +5127,7 @@ html:has(.diwali-string:not([hidden])) .header::after {
     display: none !important;
 }
 
-
+ */
 
 
 
