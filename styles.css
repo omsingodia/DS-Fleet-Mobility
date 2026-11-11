@@ -5123,6 +5123,9 @@ html:has(.diwali-string:not([hidden])) .header::after {
 .festive-banner {
     border-radius: 0;
 }
+#diwali-block[hidden] {
+    display: none !important;
+}
 
 
 

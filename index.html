@@ -26,6 +26,8 @@
 
 <body>
 
+    <div id="diwali-block">
+
     <!-- DIWALI WELCOME POP-UP (hide karne ke liye: <div class="diwali-welcome" hidden>) -->
     <div class="diwali-welcome">
         <div class="welcome-lights" aria-hidden="true">
@@ -40,7 +42,7 @@
     </div>
 
     <!-- LIGHTS SWITCH: ON = "hidden" nahi hai | OFF = hidden likh do -->
-    <div class="diwali-string" aria-hidden="true"></div>
+    <div class="diwali-string" hidden></div>
 
     <!-- FESTIVE BANNER (hata ne ke liye poora section delete kar do) -->
     <section class="festive-banner">
@@ -53,6 +55,9 @@
         <div class="festive-diyas" aria-hidden="true">🪔 ✨ 🪔</div>
     </section>
 
+
+
+    </div>
     <!-- TOP BLUE STRIP REMOVED -->
 
     <!-- HEADER -->
@@ -818,32 +823,28 @@ Our Direction        </div>
 
  
 
-    <script src="script.js"></script>
+       <script src="script.js"></script>
+
+    <!--=============================================- DIWALI MASTER SWITCH --------====================------------------->
+    <script>
+        const DIWALI_ON = false; // true = show | false = hide
+
+        const block = document.getElementById("diwali-block");
+
+        if (block) {
+            block.hidden = !DIWALI_ON;
+        }
+
+        if (DIWALI_ON) {
+            window.addEventListener("load", () => {
+                const welcome = block?.querySelector(".diwali-welcome");
+
+                if (welcome) {
+                    setTimeout(() => welcome.remove(), 3500);
+                }
+            });
+        }
+    </script>
 
 </body>
-
-
-<script>
-  window.addEventListener("load", () => {
-    const welcome = document.querySelector(".diwali-welcome");
-    if (!welcome) return;
-
-    setTimeout(() => {
-      welcome.remove();
-    }, 3500);
-  });
-</script>
-<!-- DIWALI WELCOME: remove hidden to enable -->
-<div class="diwali-welcome" >
-  <div class="welcome-lights" aria-hidden="true">
-    <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
-    <span>🟡</span><span>🔴</span><span>🟢</span><span>🔵</span>
-  </div>
-
-  <div class="welcome-message">
-    <p>DS FLEET MOBILITY</p>
-    <h1>Happy Diwali</h1>
-    <span>Wishing you light, happiness & safe journeys.</span>
-  </div>
-</div>
 </html>
